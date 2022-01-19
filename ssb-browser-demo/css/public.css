@@ -1,0 +1,16 @@
+#public > #syncData {
+  float: right;
+}
+
+#onboarding-dialog {
+  position: absolute;
+}
+
+#public .channel-selector {
+  float: right;
+  width: 15rem;
+}
+
+#public .filter-line {
+  clear: both;
+}

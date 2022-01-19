@@ -1,0 +1,6 @@
+I used multi-server address below to connect to 342pointlobos:
+
+net:192.168.86.27:8008~shs:H7JCgwMa50CkpB3vq6Ysk8SISMOUWQByL4xt6nU+DDQ=
+
+
+Note that what 'generate_invite.sh' spits out doesn't conform with the spec in https://github.com/ssbc/multiserver-address .

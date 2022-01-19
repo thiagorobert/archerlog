@@ -1,0 +1,12 @@
+# Binaries
+
+# Intellij
+.idea
+archerlog.iml
+
+# Private
+ssb.secret
+docker-push-aws.sh
+
+# AWS stuff
+aws

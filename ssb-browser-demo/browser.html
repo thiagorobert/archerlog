@@ -1,0 +1,98 @@
+<html>
+  <head>
+    <title>archerlog.com</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/theme-dark.css">
+    <link rel="stylesheet" type="text/css" href="css/theme-ethereal.css">
+    <link rel="stylesheet" type="text/css" href="css/theme-seigaihasubtle.css">
+    <link rel="stylesheet" type="text/css" href="css/theme-floralgardenbird.css">
+    <link rel="stylesheet" type="text/css" href="css/theme-pirateship.css">
+    <link rel="stylesheet" type="text/css" href="css/public.css">
+    <link rel="stylesheet" type="text/css" href="css/private.css">
+    <link rel="stylesheet" type="text/css" href="css/channels.css">
+    <link rel="stylesheet" type="text/css" href="css/groups.css">
+    <link rel="stylesheet" type="text/css" href="css/profile.css">
+    <link rel="stylesheet" type="text/css" href="css/target.css">
+    <link rel="stylesheet" type="text/css" href="css/thread.css">
+    <link rel="stylesheet" type="text/css" href="css/threads.css">
+    <link rel="stylesheet" type="text/css" href="css/connections.css">
+    <link rel="stylesheet" type="text/css" href="css/modal.css">
+
+    <link rel="stylesheet" type="text/css" href="node_modules/vue-select/dist/vue-select.css">
+    <link rel="stylesheet" type="text/css" href="node_modules/@toast-ui/editor/dist/toastui-editor.css">
+    <link rel="stylesheet" type="text/css" href="node_modules/vue-simple-context-menu/dist/vue-simple-context-menu.css">
+  </head>
+  <body>
+    <div class="refresher">
+      <img src="archerlog.png">
+    </div>
+    <div class="modalError">
+      <div>
+        <div id="modalErrorMessage">
+        </div>
+      </div>
+    </div>
+    <div id="app">
+      <common-contextmenu ref="commonContextMenu"></common-contextmenu>
+      <view-source ref="viewSource" :source-html="sourceHtml" :show="showSource" :on-close="closeSource"></view-source>
+      <h1>{{ appTitle }}</h1>
+      <p id="navigation">
+        <router-link to="/target">{{ $t('pages.target') }}</router-link> |
+        <router-link to="/public">{{ $t('pages.public') }}</router-link><new-public-messages></new-public-messages> |
+        <!--<router-link to="/threads">{{ $t('pages.threads') }}</router-link> |
+        <router-link to="/private">{{ $t('pages.private') }}</router-link><new-private-messages></new-private-messages> |
+        <router-link to="/channels">{{ $t('pages.channels') }}</router-link> |
+        <router-link to="/groups">{{ $t('pages.groups') }}</router-link> |-->
+        <ssb-profile-link class="iconButton" ref="upperNavProfileLink" :feed-id="feedId"></ssb-profile-link> |
+        <router-link class="iconButton" to="/connections" :title="$t('pages.connections')">&#127760;</router-link><connected ref="connected"></connected> |
+        <router-link class="iconButton" to="/notifications" :title="$t('pages.notifications')">&#128276;</router-link> |
+        <router-link class="iconButton" to="/settings" :title="$t('pages.settings')">&#9881;</router-link>
+      </p>
+      <!--<div id="searchBox">
+        <input type="text" :placeholder="$t('common.goToSearch')" id="goTo" v-model="goToTargetText" v-on:keyup="suggestTarget" v-on:keyup.enter="goToTarget" @focus="targetFocus" @blur="targetBlur" />
+        <div id="suggestionPositioning" v-if="suggestions.length > 0">
+          <div class="suggestion-box tui-popup-wrapper te-heading-add">
+            <div class="tui-popup-body">
+              <ul>
+                <li v-for="suggestion in suggestions" v-on:click="useSuggestion(suggestion)">
+                  <span v-if="suggestion.icon"><img :src="suggestion.icon" />&nbsp;</span>{{ suggestion.text }}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>-->
+      <div id="navClear"></div>
+
+      <router-view></router-view>
+
+      <div id="footer">
+        <router-link to="/target" class="navButton">{{ $t('pages.target') }}</router-link>
+        <router-link to="/public" class="navButton">{{ $t('pages.public') }}</router-link><new-public-messages></new-public-messages>
+        <!--<router-link to="/private" class="navButton">{{ $t('pages.private') }}</router-link><new-private-messages></new-private-messages>
+        <router-link to="/channels" class="navButton">{{ $t('pages.channels') }}</router-link>
+        <router-link to="/groups" class="navButton">{{ $t('pages.groups') }}</router-link>-->
+        <ssb-profile-link ref="lowerNavProfileLink" class="navButton" :feed-id="feedId"></ssb-profile-link>
+        <router-link to="/connections" class="navButton" :title="$t('pages.connections')">&#127760;</router-link>
+        <connected ref="connected2"></connected>
+        <router-link to="/notifications" class="navButton" :title="$t('pages.notifications')">&#128276;</router-link>
+        <router-link to="/settings" class="navButton" :title="$t('pages.settings')">&#9881;</router-link>
+      </div>
+    </div>
+  </body>
+
+  <script src="node_modules/vue/dist/vue.min.js"></script>
+  <script src="node_modules/vue-router/dist/vue-router.min.js"></script>
+  <script src="node_modules/vue-select/dist/vue-select.js"></script>
+  <script src="node_modules/vue-simple-context-menu/dist/vue-simple-context-menu.min.js"></script>
+
+  <!-- this bit me right here; these paths are re-written by write-dist.js, so just put in the local paths and the framework will get the files in the right places and fix it for you -->
+  <script src="assets/modernizr-3.5.0.min.js"></script>
+  <script src="assets/targetlogic.js"></script>
+
+  <script src="build/bundle-ui.js"></script>
+
+</html>

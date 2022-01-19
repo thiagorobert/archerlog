@@ -1,0 +1,12 @@
+{
+  "name": "archerlog.com",
+  "short_name": "archerlog.com",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fdf6e3",
+  "icons": [{
+    "src": "archerlog.png",
+    "type": "image/png",
+    "sizes": "256x256"
+  }]
+}

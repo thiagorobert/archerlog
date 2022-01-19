@@ -1,0 +1,18 @@
+{
+  "appTitle": "archerlog.com",
+  "replicationHops": 2,
+  "publicFilters": "",
+  "favoriteChannels": [],
+  "hiddenChannels": [],
+  "autorefresh": true,
+  "offlineMode": false,
+  "dhtEnabled": false,
+  "detailedLogging": false,
+  "suggestPeers": [
+    { "name": "archerlog.com", "type": "pub", "address": "wss://archerlog.com:9000~shs:1eWunE/K7ZyCIyWQsx4AS255rjyjwVBpb+q5DlMzxdk=" }
+  ],
+  "suggestFollows": [
+    { "name": "archerlog.com", "key": "@1eWunE/K7ZyCIyWQsx4AS255rjyjwVBpb+q5DlMzxdk=.ed25519" }
+  ],
+  "theme": "pirateship"
+}
